@@ -12,7 +12,7 @@ describe("getTaxBreakdown", () => {
 
   test("should calculate correctly", () => {
     const result = getTaxBreakdown(1234567, "2022", taxBrackets);
-    console.log(result);
+
     expect(result).toEqual({
       brackets: [
         {
