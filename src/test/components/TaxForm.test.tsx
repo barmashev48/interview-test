@@ -3,7 +3,7 @@ import userEvent from "@testing-library/user-event";
 import TaxForm from "@components/TaxForm/TaxForm.tsx";
 
 describe("TaxForm", () => {
-  it("submits the correct values", async () => {
+  it("should submit the correct values", async () => {
     const handleSubmit = jest.fn();
 
     render(<TaxForm onSubmit={handleSubmit} />);

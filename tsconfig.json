@@ -16,9 +16,9 @@
 
     /* Linting */
     "strict": true,
-    "types": ["jest"],
+    "types": ["jest", "@testing-library/jest-dom"],
     "noUnusedLocals": true,
-    "esModuleInterop":true,
+    "esModuleInterop": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
     "baseUrl": "./",
@@ -34,4 +34,3 @@
   "exclude": ["node_modules"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
-

@@ -10,7 +10,7 @@ describe("getTaxBreakdown", () => {
     { min: 221708, rate: 0.33 },
   ];
 
-  test("calculates tax breakdown correctly for a salary of $250000 in 2021", () => {
+  test("should calculate correctly", () => {
     const result = getTaxBreakdown(250000, "2021", taxBrackets);
 
     expect(result).toEqual({

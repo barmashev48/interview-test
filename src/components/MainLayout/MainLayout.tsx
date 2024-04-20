@@ -4,11 +4,13 @@ import Footer from "@components/Footer/Footer.tsx";
 import "./MainLayout.css";
 const MainLayout = () => {
   return (
-    <main>
+    <>
       <Header />
-      <TaxCalculator />
+      <main>
+        <TaxCalculator />
+      </main>
       <Footer />
-    </main>
+    </>
   );
 };
 

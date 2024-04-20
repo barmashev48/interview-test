@@ -1,7 +1,7 @@
 import { getTaxYearOptions } from "@utils/FormUtils.ts";
 
 describe("getTaxYearOptions", () => {
-  it("returns an array of LabelValue objects for each year in the range", () => {
+  it("should return an array of LabelValue objects for each year in the range", () => {
     const startYear = 2019;
     const endYear = 2022;
     const expectedOptions = [
@@ -16,7 +16,7 @@ describe("getTaxYearOptions", () => {
     expect(options).toEqual(expectedOptions);
   });
 
-  it("returns an array of a single LabelValue object when identical years passed", () => {
+  it("should return an array of a single LabelValue object when identical years passed", () => {
     const startYear = 2019;
     const endYear = 2019;
     const expectedOptions = [{ label: "2019", value: "2019" }];
@@ -26,7 +26,7 @@ describe("getTaxYearOptions", () => {
     expect(options).toEqual(expectedOptions);
   });
 
-  it("throws an error if the start year is greater than the end year", () => {
+  it("should throw an error if the start year is greater than the end year", () => {
     const startYear = 2022;
     const endYear = 2019;
 
