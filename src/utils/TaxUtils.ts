@@ -1,11 +1,11 @@
 import { TaxBracket, TaxBreakdown } from "@apptypes/TaxCalculationTypes.ts";
-import { roundToTwoDecimals } from "@utils/NumberUtils.ts";
+import { roundToTwoDecimals, multiply } from "@utils/NumberUtils.ts";
 import { v4 as uuidv4 } from "uuid";
 
 export const getTaxBreakdown = (
   salary: number,
   year: string,
-  taxBrackets: TaxBracket[],
+  taxBrackets: TaxBracket[]
 ): TaxBreakdown => {
   const result: TaxBreakdown = {
     brackets: [],
@@ -21,10 +21,12 @@ export const getTaxBreakdown = (
 
     if (salary > _bracket.min) {
       const taxableAmount = roundToTwoDecimals(upperLimit - _bracket.min);
-      const payableTax = roundToTwoDecimals(taxableAmount * _bracket.rate);
+      const payableTax = roundToTwoDecimals(
+        multiply(taxableAmount, _bracket.rate)
+      );
 
       result.totalTaxable = roundToTwoDecimals(
-        result.totalTaxable + taxableAmount,
+        result.totalTaxable + taxableAmount
       );
       result.totalTax = roundToTwoDecimals(result.totalTax + payableTax);
 
@@ -57,7 +59,7 @@ const getBracketRange = (bracket: TaxBracket) => {
 };
 
 const getCommonBracketData = (
-  bracket: TaxBracket,
+  bracket: TaxBracket
 ): {
   id: string;
   range: string;

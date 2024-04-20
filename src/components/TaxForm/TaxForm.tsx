@@ -27,6 +27,7 @@ const TaxForm: React.FC<TaxFormProps> = ({ onSubmit }) => {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div>
+        <img src="" />
         <FormInput
           label="Salary"
           name="salary"

@@ -11,8 +11,8 @@ describe("getTaxBreakdown", () => {
   ];
 
   test("should calculate correctly", () => {
-    const result = getTaxBreakdown(250000, "2021", taxBrackets);
-
+    const result = getTaxBreakdown(1234567, "2022", taxBrackets);
+    console.log(result);
     expect(result).toEqual({
       brackets: [
         {
@@ -27,7 +27,7 @@ describe("getTaxBreakdown", () => {
           range: "$50197 - $100392",
           effectiveRate: 20.5,
           taxableAmount: 50195,
-          payableTax: 10289.97,
+          payableTax: 10289.98,
         },
         {
           id: expect.any(String),
@@ -47,13 +47,13 @@ describe("getTaxBreakdown", () => {
           id: expect.any(String),
           range: "$221708 +",
           effectiveRate: 33,
-          taxableAmount: 28292,
-          payableTax: 9336.36,
+          taxableAmount: 1012859,
+          payableTax: 334243.47,
         },
       ],
-      totalTaxable: 250000,
-      totalTax: 60680.53,
-      description: "Tax breakdown for $250000 salary in 2021",
+      totalTaxable: 1234567,
+      totalTax: 385587.65,
+      description: "Tax breakdown for $1234567 salary in 2022",
     });
   });
 });

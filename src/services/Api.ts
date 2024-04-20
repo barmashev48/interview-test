@@ -5,7 +5,7 @@ import TaxBracketApiResponseSchema from "@schemas/TaxBracketsApiResponseSchema.t
 export const fetchTaxBrackets = async (year: string): Promise<TaxBracket[]> => {
   try {
     const responseData = await makeRequest(
-      `${getBaseUrl()}/tax-calculator/tax-year/${year}`,
+      `${getBaseUrl()}/tax-calculator/tax-year/${year}`
     );
 
     const data = await TaxBracketApiResponseSchema.validate(responseData, {
@@ -15,6 +15,7 @@ export const fetchTaxBrackets = async (year: string): Promise<TaxBracket[]> => {
     return data.tax_brackets;
   } catch (e) {
     //send to sentry
+    console.log(e);
     throw e;
   }
 };

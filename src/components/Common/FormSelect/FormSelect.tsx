@@ -8,6 +8,7 @@ interface FormSelectProps {
   register: UseFormRegisterReturn;
   options: LabelValue[];
   error?: FieldError;
+  defaultOption?: LabelValue;
 }
 
 const FormSelect: React.FC<FormSelectProps> = ({
@@ -16,14 +17,13 @@ const FormSelect: React.FC<FormSelectProps> = ({
   register,
   options,
   error,
+  defaultOption = { label: "Select an option", value: "" },
 }) => {
   return (
     <div className={"inputWrapper"}>
       <label htmlFor={name}>{label}</label>
       <select id={name} {...register}>
-        <option value="" disabled>
-          Select an option
-        </option>
+        <option value={defaultOption.value}>{defaultOption.label}</option>
         {options.map((option) => (
           <option key={option.value} value={option.value}>
             {option.label}
