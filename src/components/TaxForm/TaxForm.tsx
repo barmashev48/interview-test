@@ -37,7 +37,8 @@ const TaxForm: React.FC<TaxFormProps> = ({ onSubmit }) => {
           label="Tax Year"
           name="year"
           register={register("year")}
-          options={getTaxYearOptions()}
+          options={getTaxYearOptions(2019, 2022)}
+          error={errors.year}
         />
       </div>
 

@@ -2,9 +2,10 @@ import { isProdEnvinment } from "./EnvUtils.ts";
 
 export const getBaseUrl = (): string => {
   if (isProdEnvinment()) {
-    return "http://localhost:5001";
+    //Should be stored in env
+    return "https://fakeprod.com";
   } else {
-    throw Error("Invalid Environment");
+    return "http://localhost:5001";
   }
 };
 

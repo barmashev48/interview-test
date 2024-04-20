@@ -7,8 +7,8 @@ const TaxBracketApiResponseSchema = yup.object({
       yup
         .object()
         .shape({
-          max: yup.number().integer().positive().optional(),
-          min: yup.number().integer().min(0).required(),
+          max: yup.number().positive().optional(),
+          min: yup.number().min(0).required(),
           rate: yup.number().positive().required(),
         })
         .test(

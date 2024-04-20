@@ -6,13 +6,20 @@ interface FormInputProps {
   name: string;
   register: UseFormRegisterReturn;
   error?: FieldError;
+  type?: string;
 }
 
-const FormInput: FC<FormInputProps> = ({ label, name, register, error }) => {
+const FormInput: FC<FormInputProps> = ({
+  label,
+  name,
+  register,
+  error,
+  type = "text",
+}) => {
   return (
     <div className={"inputWrapper"}>
       <label htmlFor={name}>{label}</label>
-      <input id={name} {...register} />
+      <input id={name} type={type} {...register} />
       {error && (
         <p role="alert" aria-live="assertive">
           {error.message}

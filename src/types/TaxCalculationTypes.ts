@@ -8,7 +8,7 @@ export interface TaxBreakdown {
   brackets: {
     id: string;
     range: string;
-    effectiveRate: string;
+    effectiveRate: number;
     taxableAmount: number;
     payableTax: number;
   }[];

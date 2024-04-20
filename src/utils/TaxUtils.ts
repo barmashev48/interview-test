@@ -49,10 +49,6 @@ const getUpperLimit = (salary: number, bracket: TaxBracket): number => {
   return bracket.max ? Math.min(bracket.max, salary) : salary;
 };
 
-const getPercentageFromRate = (rate: number): number => {
-  return roundToTwoDecimals(rate * 100);
-};
-
 const getBracketRange = (bracket: TaxBracket) => {
   if (!bracket.max) {
     return `$${bracket.min} +`;
@@ -65,10 +61,10 @@ const getCommonBracketData = (
 ): {
   id: string;
   range: string;
-  effectiveRate: string;
+  effectiveRate: number;
 } => {
   const bracketRange = getBracketRange(bracket);
-  const bracketEffectiveRate = `${getPercentageFromRate(bracket.rate)}`;
+  const bracketEffectiveRate = roundToTwoDecimals(bracket.rate * 100);
   const id = uuidv4();
 
   return {
