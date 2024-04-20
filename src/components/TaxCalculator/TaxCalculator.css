@@ -1,0 +1,15 @@
+.taxCalculatorWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 2px solid salmon;
+    border-radius: 10px;
+    width: 700px;
+    height: 550px;
+    padding: 15px;
+}
+
+.taxBreakdown {
+    text-align: left;
+}
