@@ -7,6 +7,7 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "lint": "eslint --cache --max-warnings 0 ./src && npm run tsc",
+    "lint:fix": "eslint --fix ./src",
     "preview": "vite preview",
     "test": "jest --coverage",
     "prepare": "husky"
