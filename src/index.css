@@ -35,5 +35,9 @@ h1 {
   line-height: 1.1;
 }
 
-
+@media (max-width: 600px) {
+  :root {
+    font-size: 0.8rem;
+  }
+}
 
