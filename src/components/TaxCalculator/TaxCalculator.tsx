@@ -2,7 +2,7 @@ import { useState } from "react";
 import TaxForm, { TaxFormData } from "@components/TaxForm/TaxForm.tsx";
 import { fetchTaxBrackets } from "@services/Api.ts";
 import { getTaxBreakdown } from "@utils/TaxUtils.ts";
-import { TaxBreakdown } from "@apptypes/TaxCalculationTypes.ts";
+import { TaxBracket, TaxBreakdown } from "@apptypes/TaxCalculationTypes.ts";
 import TaxBreakdownTable from "@components/TaxBreakdownTable/TaxBreakdownTable.tsx";
 import "./TaxCalculator.css";
 const TaxCalculator = () => {
@@ -14,14 +14,21 @@ const TaxCalculator = () => {
     setError(null);
     setIsLoading(true);
 
+    let taxBrackets: TaxBracket[] = [];
     try {
-      const taxBrackets = await fetchTaxBrackets(year);
+      taxBrackets = await fetchTaxBrackets(year);
+    } catch {
+      setIsLoading(false);
+      setError(`Error fetching brackets. Please try again`);
+      return;
+    }
+
+    try {
       const taxBreakdown = getTaxBreakdown(salary, year, taxBrackets);
       setTaxBreakdown(taxBreakdown);
-      setIsLoading(false);
-      setError(null);
     } catch {
       setError(`Error calculating taxes. Please try again`);
+    } finally {
       setIsLoading(false);
     }
   };
